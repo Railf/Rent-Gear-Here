@@ -1,6 +1,6 @@
 # Rent Gear Here - Solutions with Code
 Code written while at working for [Rent Gear Here](https://www.rentgearhere.com) (RGH),
-as Systems & Data Manager (May 2019 - present).
+as **Systems & Data Manager** (May 2019 - present).
 
 
 
