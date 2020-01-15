@@ -12,6 +12,11 @@ Code written for RGH's Delivery Doc.
 ### Scheduler
 
 ### Geosort
+Geographically sort addresses provided by the user,
+using Google's Maps.newDirectionFinder().
+```
+=GEOSORTE(L2:L37)
+```
 
 ### Summary Box Generator
 Generates a summary box of all items needed, for a particular route.
