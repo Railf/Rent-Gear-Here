@@ -20,8 +20,3 @@ Code written for RGH's Bike & Beach Master.
 
 ## Baby Master
 Code written for RGH's Baby Master.
-
-
-
-## Miscellaneous
-Code written for general use.
