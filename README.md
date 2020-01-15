@@ -17,6 +17,9 @@ using Google's Maps.newDirectionFinder().
 ```
 =GEOSORTE(L2:L37)
 ```
+```
+=GEOSORTW(L2:L37)
+```
 
 ### Summary Box Generator
 Generates a summary box of all items needed, for a particular route.
