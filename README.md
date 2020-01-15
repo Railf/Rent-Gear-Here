@@ -14,6 +14,10 @@ Code written for RGH's Delivery Doc.
 ### Geosort
 
 ### Summary Box Generator
+Generates a summary box of all items needed, for a particular route.
+```
+=BOX(A2:2:37)
+```
 
 ### Helper Functions
 
