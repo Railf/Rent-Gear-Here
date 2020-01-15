@@ -1,5 +1,5 @@
-# Rent Gear Here (RGH)
-Code written while at working for [Rent Gear Here](https://www.rentgearhere.com).
+# Rent Gear Here
+Code written while at working for [Rent Gear Here](https://www.rentgearhere.com) (RGH).
 
 
 
