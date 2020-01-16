@@ -11,16 +11,7 @@ Code written for RGH's Delivery Doc.
 Global variables are not naturally supported, in Google Script code.
 This is a work-around.
 ```
-var sheetID = Global().s_bp_schedule;
-```
-```
-var tabName = Global().t_workorders;
-```
-```
 var nameColumn = Global().c_first_name;
-```
-```
-var dataColumns = Global().n_data_columns;
 ```
 
 ### Scheduler
