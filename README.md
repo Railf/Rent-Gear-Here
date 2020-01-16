@@ -5,7 +5,7 @@ as **Systems & Data Manager** (May 2019 - present).
 
 
 ## Delivery Doc
-Code written for RGH's Delivery Doc.
+Code written for RGH's "Delivery Doc."
 
 ### Global Variables
 Global variables are not naturally supported, in Google Script code.
@@ -41,14 +41,14 @@ if(isLeftContainingRight(large,small)) { Logger.log("Left contains right."); }
 ```
 
 ## Bike Program Schedule
-Code written for RGH's Bike Program Schedule.
+Code written for RGH's "Bike Program Schedule."
 
 
 
 ## Bike & Beach Master
-Code written for RGH's Bike & Beach Master.
+Code written for RGH's "Bike & Beach Master."
 
 
 
 ## Baby Master
-Code written for RGH's Baby Master.
+Code written for RGH's "Baby Master."
