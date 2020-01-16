@@ -19,7 +19,7 @@ var nameColumn = Global().c_first_name;
 ### Geosort
 Geographically sort addresses provided by the user,
 using Google's Maps.newDirectionFinder(),
-work East-to-West (GEOSORTE) or West-to-East (GEOSORTW).
+working East-to-West or West-to-East.
 ```
 =GEOSORTE(L2:L37)
 ```
