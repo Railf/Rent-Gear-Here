@@ -47,12 +47,28 @@ if ( isLeftContainingRight(large,small) ) { Logger.log("Left contains right."); 
 ## Bike Program Schedule
 Code written for RGH's "Bike Program Schedule."
 
+### Owner Arrival
+Fetch the "OWNER ARRIVAL" status, if there is an owner arriving, pertaining to bike-wellness checks.
+```
+=fetchOwnerArrival()
+```
 
 
 ## Bike & Beach Master
 Code written for RGH's "Bike & Beach Master."
 
+### Summary Column
+Create an "order summary" for each order.
+```
+Navigate to menu item, "Summary," and click "Generate Summaries."
+```
 
 
 ## Baby Master
 Code written for RGH's "Baby Master."
+
+### Summary Column
+Create an "order summary" for each order.
+```
+Navigate to menu item, "Summary," and click "Generate Summaries."
+```
