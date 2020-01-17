@@ -21,9 +21,7 @@ Navigate to menu item, "360 Blue," and click "Get Work Orders."
 ```
 
 ### Geosort
-Geographically sort addresses provided by the user,
-using Google's Maps.newDirectionFinder(),
-working East-to-West or West-to-East.
+Geographically sort addresses, using Google's Maps.newDirectionFinder(), working East-to-West or West-to-East.
 ```
 =GEOSORTE(L2:L37)
 ```
