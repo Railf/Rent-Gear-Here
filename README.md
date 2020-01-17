@@ -15,6 +15,10 @@ var nameColumn = Global().c_first_name;
 ```
 
 ### Scheduler
+Schedule 360BLUE work orders, and keep track od their completion status.
+```
+Navigate to menu item, "360 Blue," and click "Get Work Orders."
+```
 
 ### Geosort
 Geographically sort addresses provided by the user,
