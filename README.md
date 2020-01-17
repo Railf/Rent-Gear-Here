@@ -37,7 +37,7 @@ Generates a summary box of all items needed, for a particular route.
 Functions that can be utilized in more than one project,
 in an effort to not recreate the wheel.
 ```
-if(isLeftContainingRight(large,small)) { Logger.log("Left contains right."); }
+if ( isLeftContainingRight(large,small) ) { Logger.log("Left contains right."); }
 ```
 
 ## Bike Program Schedule
