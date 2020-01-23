@@ -46,7 +46,7 @@ if ( isLeftContainingRight(large,small) ) { Logger.log("Left contains right."); 
 Code written for RGH's "Bike Program Schedule."
 
 ### Owner Arrival
-Fetch the "OWNER ARRIVAL" status, if there is an owner arriving, pertaining to bike-wellness checks.
+Fetch the "OWNER ARRIVAL" status, for the property that exists on the same row, if an RGH partner has an owner arrival for said property; otherwise, return nothing.
 ```
 =fetchOwnerArrival()
 ```
