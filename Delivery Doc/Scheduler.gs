@@ -243,13 +243,15 @@ SendConfirmation(e)
   var ss        = SpreadsheetApp.getActiveSpreadsheet();
   var sheet     = ss.getActiveSheet();
   var stop      = sheet.getRange(e.range.getRow(), 1, 1, (Global().n_data_columns)).getValues()[0];
-  var heading   = stop[Global().c_first_name - 1];
-  var email     = stop[Global().c_email      - 1];
-  var address   = stop[Global().c_address    - 1];
+  var notes     = stop[Global().c_driver_notes - 1];
+  var heading   = stop[Global().c_first_name   - 1];
+  var email     = stop[Global().c_email        - 1];
+  var address   = stop[Global().c_address      - 1];
   var workorder;
   var status;
   var subject;
   var body;
+  var date = getDate();
   
   if (email == null || email == undefined) return;
   
@@ -264,11 +266,12 @@ SendConfirmation(e)
     
     if (send)
     {
+      email   = email +",360help@360blue.com";
       subject = heading + " | COMPLETED";
       body    = "This work order has been signed off as complete.";
     }
     
-    setWorkOrderStatus(workorder, address, email, "COMPLETED");
+    setWorkOrderStatus(workorder, date, address, email, "COMPLETED", notes);
   }
   else if(
     isLeftContainingRight(heading,"DELIVERY")       ||
@@ -344,7 +347,7 @@ getWorkOrders()
   var   property_id; // {!WorkOrder.Property__c}            // FROM SUBJECT: components, index 3
   var   agent_email; // {!WorkOrder.CreatedBy.Email}        // FROM SENDER:  getFrom()
   var   description  // {!WorkOrder.Description}            // FROM BODY:    getPlainBody()
-  var   date            = getDate();                        // RETRIEVE STRING OF DATE IN MM/DD FORMAT
+  var   date;                                               // PLACEHOLDER FOR DATE
   
   // ARRAYS
   
@@ -394,6 +397,8 @@ getWorkOrders()
     description = description.slice(0,-1);                              // REMOVES THE NEWLINE THAT IS ATTACHED TO THE END OF EVERY DESCRIPTION
     
     property    = getPropertyDetails(property_id);                      // GET PROPERTY DETAILS FROM THE PROPERTY CODE PROVIDED
+
+    date        = email[i].getMessages()[0].getDate();
     
     
     // =====================
@@ -403,13 +408,16 @@ getWorkOrders()
     recordDetails.push(
       [
         workorder,
+        date,
         property_id,
         property.address,
         agent_email,
+        description,
         "SCHEDULED"
       ]
     );
     
+    date = getDate();
     
     // ===============
     // = RECORD STOP =
@@ -528,7 +536,7 @@ function
 getPropertyDetails(property_id)
 {
   var spreadsheet_id = Global().s_bp_schedule;
-  var query          = "=QUERY(SCHEDULE_RGH!A:K, \"SELECT D, F, G, H, J, K WHERE B = \'" + property_id + "\' LIMIT 1\", 0)";
+  var query          = "=QUERY(SCHEDULE_RGH!A:K, \"SELECT D, F, G, H, J, K, E WHERE B = \'" + property_id + "\' LIMIT 1\", 0)";
   var schedule       = SpreadsheetApp.openById(spreadsheet_id);
   var temp           = schedule.insertSheet();
   
@@ -540,12 +548,13 @@ getPropertyDetails(property_id)
   
     
   return {
-    "notes"  : results[0][0],
+    "partner": results[0][0],
     "name"   : results[0][1],
     "area"   : results[0][2],
     "address": results[0][3],
     "type"   : results[0][4],
-    "count"  : results[0][5]
+    "count"  : results[0][5],
+    "notes"  : results[0][6]
   }
 }
 
@@ -717,7 +726,7 @@ getWorkOrderStatus(workorder)
   {
     if (data[i][0] == workorder)
     {
-      return data[i][4];
+      return data[i][6];
     }
   }
   
@@ -736,7 +745,7 @@ getWorkOrderStatus(workorder)
 ========================================================================================================================================================================*/
 
 function
-setWorkOrderStatus(workorder, address, email, status)
+setWorkOrderStatus(workorder, date, address, email, status, notes)
 { 
   var ss    = SpreadsheetApp.openById(Global().s_wos_register);
   var sheet = ss.getSheetByName(Global().t_workorders);
@@ -746,10 +755,11 @@ setWorkOrderStatus(workorder, address, email, status)
   {
     if (data[i][0] == workorder)
     {
-      sheet.getRange(i+1,5).setValue(status);
+      sheet.getRange(i+1,7).setValue(status);
+      sheet.getRange(i+1,8).setValue(notes);
       return;
     }
   }
   
-  sheet.getRange(sheet.getLastRow()+1,1,1,5).setValues([[workorder, "", address, email, status]]);
+  sheet.getRange(sheet.getLastRow()+1,1,1,8).setValues([[workorder, date, "", address, email, "", status, notes]]); // ADD ROW IF WORKORDER DID NOT ALREADY EXIST.
 }
